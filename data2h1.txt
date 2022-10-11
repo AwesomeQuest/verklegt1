@@ -1,10 +1,4 @@
-﻿Vernier Format 2
-Untitled.cmbl 06-Sep-22 15:07:49 .
-Latest
-Time	Position	Velocity	Acceleration
-t	x	v	acc
-s	m	m/s	m/s²
-
+﻿Time	Position	Velocity	Acceleration
 0.02	0.265194	0.251463888889	0.477484567901
 0.04	0.270081	0.260636111111	0.464795524691
 0.06	0.275383	0.272616666667	0.378009259259

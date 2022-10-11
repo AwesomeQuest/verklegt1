@@ -5,14 +5,14 @@ dh = 0.5e-2;
 l = 122e-2;
 dl = 0.5e-2;
 
-mu1 = avgh/l;
-dmu = (((1/l)*dh)^2+(-avgh/(l^2)*dl)^2)^0.5;
+mu1 = avgh/l
+dmu = (((1/l)*dh)^2+(-avgh/(l^2)*dl)^2)^0.5
 
 %% hluti 2
 
 
 data{3,2} = [];
-for i = 1:3 
+for i = 1:3
 	for j = 1:2
 		data{i,j} = readmatrix("data" + i + "h" + j);
 	end
@@ -55,7 +55,7 @@ plotsvar{3,2} = [];
 subplotcount = 1;
 for i = 1:3
 	for j = 1:2
-		subplot(2,3,subplotcount)
+		subplot(3,2,subplotcount)
 		hold on;
 		xlabel("Timi [s]")
 		ylabel("Hraði [m/s]")
@@ -91,16 +91,17 @@ theta = [asin(h2(1)/l) asin(h2(2)/l)];
 
 for i = 1:3
 	for j = 1:2
-		for k = 1:5
-			mu(i,j,k) = (slopes(i,j,k+1)-slopes(i,j,k))/(2*g*cos(theta(j)));
+		for k = 2:2:10
+			mu(i,j,k/2) = (slopes(i,j,k)-slopes(i,j,k-1))/(2*g*cos(theta(j)));
 		end
 	end
 end
 
+% mu = abs(mu);
 
 avgmu = sum(mu(:))/numel(mu);
 maxmu = max(mu(:));
 minmu = min(mu(:));
 
-middlemu = (maxmu+minmu)/2;
-dmiddlemu = middlemu-minmu;
+middlemu = (maxmu+minmu)/2
+dmiddlemu = middlemu-minmu
